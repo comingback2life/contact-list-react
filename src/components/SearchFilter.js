@@ -8,7 +8,7 @@ export const SearchFilter = () => {
         </div>
         <div className="col">
         <select className="form-select" aria-label="Filter by Gender">
-    <option selected>Filter by Gender</option>
+    <option defaultValue>Filter by Gender</option>
     <option value="male">Male</option>
     <option value="female">Female</option>
   </select>
