@@ -1,4 +1,5 @@
 import './App.css';
+import { ContactList } from './components/ContactList';
 import { SearchFilter } from './components/SearchFilter';
 import { Title } from './components/Title';
 function App() {
@@ -6,7 +7,13 @@ function App() {
     <div className="wrapper">
       <div className="container">
         <Title/>
-        <SearchFilter></SearchFilter>
+        <SearchFilter/>
+
+        <hr/>
+        <div className="row">
+          <div className="col">55 user Found</div>
+          </div>
+          <ContactList></ContactList>
         </div>
     </div>
   );
