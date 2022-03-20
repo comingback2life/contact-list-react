@@ -1,16 +1,17 @@
 import { useEffect,useState } from 'react';
 import './App.css';
-import { ContactCard } from './components/ContactCard';
+import { Card } from './components/Card';
 import { ContactList } from './components/ContactList';
 import { SearchFilter } from './components/SearchFilter';
 import { Title } from './components/Title';
+import { fetchUsers } from './helper/apiCall';
 
 function App() {
   const [contacts,setContacts]=useState([]); 
   useEffect(()=>{
-  
+fetchUsers().then(data=> setContacts(data.results))
   },[])
-  console.log("Rendering completed");
+  console.log(contacts,"Rendering completed");
   return (
     <div className="wrapper">
       <div className="container">
@@ -21,8 +22,7 @@ function App() {
         <div className="row">
           <div className="col">55 user Found</div>
           </div>
-          <ContactList></ContactList>
-          <ContactCard></ContactCard>
+          <ContactList contact={contacts}></ContactList>
         </div>
     </div>
   );
