@@ -14,13 +14,14 @@ fetchUsers().then(data=> setContacts(data.results))
   console.log(contacts,"Rendering completed");
   const handleOnGenderChange=e=>{
     const{value}=e.target;
-    fetchUsers().then(data=>setContacts(data.results))
+    const params= `?results=12&gender=${value}`
+    fetchUsers(params).then(data=>setContacts(data.results))
   }
   return (
     <div className="wrapper">
       <div className="container">
         <Title/>
-        <SearchFilter/>
+        <SearchFilter handleOnGenderChange={handleOnGenderChange}/>
 
         <hr/>
         <div className="row">
