@@ -5,23 +5,28 @@ import { ContactList } from './components/ContactList';
 import { SearchFilter } from './components/SearchFilter';
 import { Title } from './components/Title';
 import { fetchUsers } from './helper/apiCall';
-
+import {Spinner} from './components/Spinner'
 function App() {
   const [contacts, setContacts] = useState([]);
   const [user, setUser]=useState([]);
+  const [loading,setLoading]=useState(false);
   useEffect(() => {
+    setLoading(true)
     fetchUsers().then(data => {
       setContacts(data.results)
       setUser(data.results)
+      setLoading(false);
     });
   }, []);
 
   const handleOnGenderChange = e => {
     const { value } = e.target;
+    setLoading(true)
     const params = `?results=12&gender=${value}`;
     fetchUsers(params).then(data => {
       setUser(data.results)
       setContacts(data.results)
+      setLoading(true)
     });
   };
 
@@ -48,6 +53,7 @@ function App() {
         <div className="row">
           <div className="col text-center">{contacts.length} user Found</div>
         </div>
+        {loading && <Spinner/>}
         <ContactList contact={contacts}></ContactList>
       </div>
     </div>
