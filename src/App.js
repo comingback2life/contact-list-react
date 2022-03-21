@@ -12,6 +12,10 @@ function App() {
 fetchUsers().then(data=> setContacts(data.results))
   },[])
   console.log(contacts,"Rendering completed");
+  const handleOnGenderChange=e=>{
+    const{value}=e.target;
+    fetchUsers().then(data=>setContacts(data.results))
+  }
   return (
     <div className="wrapper">
       <div className="container">
@@ -20,7 +24,7 @@ fetchUsers().then(data=> setContacts(data.results))
 
         <hr/>
         <div className="row">
-          <div className="col">55 user Found</div>
+          <div className="col">{contacts.length} user Found</div>
           </div>
           <ContactList contact={contacts}></ContactList>
         </div>
