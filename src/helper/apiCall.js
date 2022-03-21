@@ -1,5 +1,5 @@
-const apiUrl="https://randomuser.me/api/?results=10";
+const apiUrl="https://randomuser.me/api/";
 const axios = require('axios')
-export const fetchUsers = ()=>{
-  return axios.get(apiUrl).then(res=>res.data)
+export const fetchUsers = (args="?results=10")=>{
+  return axios.get(apiUrl+args).then(res=>res.data)
 }
