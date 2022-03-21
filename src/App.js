@@ -19,7 +19,10 @@ function App() {
   const handleOnGenderChange = e => {
     const { value } = e.target;
     const params = `?results=12&gender=${value}`;
-    fetchUsers(params).then(data => setContacts(data.results));
+    fetchUsers(params).then(data => {
+      setUser(data.results)
+      setContacts(data.results)
+    });
   };
 
   const handleOnSearch=e=>{
@@ -43,7 +46,7 @@ function App() {
 
         <hr />
         <div className="row">
-          <div className="col">{contacts.length} user Found</div>
+          <div className="col text-center">{contacts.length} user Found</div>
         </div>
         <ContactList contact={contacts}></ContactList>
       </div>
