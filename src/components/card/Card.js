@@ -10,8 +10,8 @@ export const Card = ({user}) => {
   <p className="card-text">
     <ul className='list-unstyled'>
       <li><i className="fa-solid fa-mobile-retro"></i> {user.cell} </li>
-      <li><i className="fa-solid fa-at"></i>{user.email}</li>
       <li><i class="fa-solid fa-location-dot"></i> {user.location.country} </li>
+      <li className='text-center'>{user.email}</li>
       </ul></p>
   <a href="#" className="btn btn-primary">Go somewhere</a>
 </div>
