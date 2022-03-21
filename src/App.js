@@ -8,9 +8,12 @@ import { fetchUsers } from './helper/apiCall';
 
 function App() {
   const [contacts, setContacts] = useState([]);
-  const [displayUser, setDisplayUser]=useState([]);
+  const [user, setUser]=useState([]);
   useEffect(() => {
-    fetchUsers().then(data => setContacts(data.results));
+    fetchUsers().then(data => {
+      setContacts(data.results)
+      setUser(data.results)
+    });
   }, []);
 
   const handleOnGenderChange = e => {
@@ -22,21 +25,21 @@ function App() {
   const handleOnSearch=e=>{
     const{value}=e.target;
     //filter
-    const filterArgs = contacts.filter(user=>{
+    const filterArgs = user.filter(user=>{
       const userName=(user.name.first+" "+user.name.last).toLowerCase();     
       if(userName.includes(value.toLowerCase())){
         return true;
       }
     }
   )
-    console.log(filterArgs);
+    setContacts(filterArgs);
 }
   
   return (
     <div className="wrapper">
       <div className="container">
         <Title />
-        <SearchFilter handleOnGenderChange={handleOnGenderChange} />
+        <SearchFilter handleOnGenderChange={handleOnGenderChange} handleOnSearch={handleOnSearch} />
 
         <hr />
         <div className="row">
