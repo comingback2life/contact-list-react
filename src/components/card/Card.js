@@ -14,7 +14,6 @@ export const Card = ({user}) => {
       <li className='text-center'>{user.email}</li>
       </ul>
       </div>
-  <a href="#" className="btn btn-primary">Go somewhere</a>
 </div>
 </div>
     </div>
