@@ -8,6 +8,7 @@ import { fetchUsers } from './helper/apiCall';
 
 function App() {
   const [contacts, setContacts] = useState([]);
+  const [displayUser, setDisplayUser]=useState([]);
   useEffect(() => {
     fetchUsers().then(data => setContacts(data.results));
   }, []);
@@ -21,7 +22,16 @@ function App() {
   const handleOnSearch=e=>{
     const{value}=e.target;
     //filter
-  }
+    const filterArgs = contacts.filter(user=>{
+      const userName=(user.name.first+" "+user.name.last).toLowerCase();     
+      if(userName.includes(value.toLowerCase())){
+        return true;
+      }
+    }
+  )
+    console.log(filterArgs);
+}
+  
   return (
     <div className="wrapper">
       <div className="container">

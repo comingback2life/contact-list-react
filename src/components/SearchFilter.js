@@ -1,10 +1,10 @@
 import React from 'react'
 
-export const SearchFilter = ({handleOnGenderChange}) => {
+export const SearchFilter = ({handleOnGenderChange,handleOnSearch}) => {
   return (
     <div className="row">
       <div className="col">
-        <input type="text" name="" id="" className='form-control'/>
+        <input type="text" name="" id="" className='form-control' onChange={handleOnSearch}/>
         </div>
         <div className="col">
         <select className="form-select" aria-label="Filter by Gender" onChange={handleOnGenderChange}>

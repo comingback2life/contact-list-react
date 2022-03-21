@@ -7,12 +7,13 @@ export const Card = ({user}) => {
   <img src={user.picture.large} className="card-img-top" alt="..."/>
   <div className="card-body">
   <h5 className="card-title">{user.name.title} {user.name.first} {user.name.last}</h5>
-  <p className="card-text">
+  <div className="card-text">
     <ul className='list-unstyled'>
       <li><i className="fa-solid fa-mobile-retro"></i> {user.cell} </li>
-      <li><i class="fa-solid fa-location-dot"></i> {user.location.country} </li>
+      <li><i className="fa-solid fa-location-dot"></i> {user.location.country} </li>
       <li className='text-center'>{user.email}</li>
-      </ul></p>
+      </ul>
+      </div>
   <a href="#" className="btn btn-primary">Go somewhere</a>
 </div>
 </div>
