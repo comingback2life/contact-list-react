@@ -1,14 +1,13 @@
 import React from 'react'
 import { Card } from './card/Card';
+import { Spinner } from './Spinner';
 
 export const ContactList = ({contact}) => {
   return (
     <div className="row">
      
         {!contact.length ? (
-          <div className="spinner-border text-primary" role="status">
-          <span className="visually-hidden">Loading...</span>
-          </div>
+         'No User Found'
         ): contact.map((usr,i)=><Card key={i} user={usr}/>)}
       
        
