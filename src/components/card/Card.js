@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "./card.css"
 export const Card = ({user}) => {
   return (
     <div className="col-md-6 col-lg-3 py-2"> 
@@ -9,9 +9,9 @@ export const Card = ({user}) => {
   <h5 className="card-title">{user.name.title} {user.name.first} {user.name.last}</h5>
   <p className="card-text">
     <ul className='list-unstyled'>
-      <li>Phone : {user.cell} </li>
-      <li>Email: {user.email}</li>
-      <li>Country : {user.location.country} </li>
+      <li><i className="fa-solid fa-mobile-retro"></i> {user.cell} </li>
+      <li><i className="fa-solid fa-at"></i>{user.email}</li>
+      <li><i class="fa-solid fa-location-dot"></i> {user.location.country} </li>
       </ul></p>
   <a href="#" className="btn btn-primary">Go somewhere</a>
 </div>

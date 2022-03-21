@@ -1,6 +1,6 @@
 import { useEffect,useState } from 'react';
 import './App.css';
-import { Card } from './components/Card';
+import { Card } from './components/card/Card';
 import { ContactList } from './components/ContactList';
 import { SearchFilter } from './components/SearchFilter';
 import { Title } from './components/Title';
